@@ -20,11 +20,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
-   public ArrayList<Mountain> items;/* = new ArrayList<>(Arrays.asList(
+     RecyclerViewAdapter adapter;
+   public ArrayList<Mountain> items = new ArrayList<Mountain>();/* = new ArrayList<>(Arrays.asList(
             new Mountain("Matterhorn"),
             new Mountain("Mont Blanc"),
             new Mountain("Denali")
     ));
+
 */
 
 
@@ -32,17 +34,17 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        new JsonFile(this, this).execute(JSON_FILE);
-
+        //new JsonFile(this, this).execute(JSON_FILE);
+        new JsonTask(this).execute(JSON_URL);
 
       //  Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
+         adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(Mountain item) {
                 Toast.makeText(MainActivity.this, item.getName(), Toast.LENGTH_SHORT).show();
             }
         });
+
 
         RecyclerView view = findViewById(R.id.recycler);
         view.setLayoutManager(new LinearLayoutManager(this));
@@ -53,10 +55,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
+        //Log.d("MainActivity", json);
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
         items = gson.fromJson(json,type);
+        Log.d("Skriv", items.toString());
 
 
     }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -13,11 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<Mountain> items;
+    private ArrayList<Mountain> items;
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<Mountain> items, OnClickListener onClickListener) {
+    RecyclerViewAdapter(Context context, ArrayList<Mountain> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
