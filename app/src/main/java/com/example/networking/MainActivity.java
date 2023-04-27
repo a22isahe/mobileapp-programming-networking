@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
         items = gson.fromJson(json,type);
         Log.d("Skriv", items.toString());
-
+        adapter.notifyDataSetChanged();
 
     }
 
