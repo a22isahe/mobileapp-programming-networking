@@ -59,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     //adds a new ArrayList<Mountain> to the RecyclerView (used for updating the list).
-    public void NewItems(ArrayList<Mountain> mountains){
+    public void newItems(ArrayList<Mountain> mountains){
         this.items = mountains;
     }
 
