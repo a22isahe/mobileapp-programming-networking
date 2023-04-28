@@ -1,6 +1,7 @@
 package com.example.networking;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d("ViewHoler", items.toString());
         return new ViewHolder(layoutInflater.inflate(R.layout.item_view, parent, false));
     }
 
@@ -53,6 +55,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View view) {
             onClickListener.onClick(items.get(getAdapterPosition()));
         }
+    }
+
+
+    //adds a new ArrayList<Mountain> to the RecyclerView (used for updating the list).
+    public void NewItems(ArrayList<Mountain> mountains){
+        this.items = mountains;
     }
 
     public interface OnClickListener {

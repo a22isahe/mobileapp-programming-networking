@@ -12,6 +12,7 @@ public class Mountain {
     private int cost;
     private String ID;
 
+
     public Mountain(String ID, String name, String type,String company, String category, int size, int cost) {
         this.ID = ID;
         this.name = name;

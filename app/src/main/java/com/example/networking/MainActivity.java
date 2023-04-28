@@ -20,8 +20,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
-     RecyclerViewAdapter adapter;
-   public ArrayList<Mountain> items = new ArrayList<Mountain>();/* = new ArrayList<>(Arrays.asList(
+    RecyclerViewAdapter adapter;
+    public ArrayList<Mountain> items = new ArrayList<>();
+
+
+   /* = new ArrayList<>(Arrays.asList(
             new Mountain("Matterhorn"),
             new Mountain("Mont Blanc"),
             new Mountain("Denali")
@@ -34,14 +37,15 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //new JsonFile(this, this).execute(JSON_FILE);
-        new JsonTask(this).execute(JSON_URL);
 
-      //  Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
+        //new JsonFile(this, this).execute(JSON_FILE);
+       new JsonTask(this).execute(JSON_URL);
+
          adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(Mountain item) {
                 Toast.makeText(MainActivity.this, item.getName(), Toast.LENGTH_SHORT).show();
+                Log.d("Skriv", "Adapter");
             }
         });
 
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
         items = gson.fromJson(json,type);
+        adapter.NewItems(items);
         Log.d("Skriv", items.toString());
         adapter.notifyDataSetChanged();
 
