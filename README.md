@@ -7,10 +7,10 @@ En Adapter-klass skapades och fick namnet RecyclerViewAdapter. Denna ärver fär
 att rita ut, hålla koll på antalet, och hantera det som ska visas upp i En RecyclerView.
 tre objekt deklarerades: en arrayList för att hålla i Mountain objekt, en LayoutInflater för att rita ut objekten på skärmen och en 
 onclickListener.
-EN konstruktor autogenererades och ett antal metoder  Overridades/ärvdes. Där främmande objekt och referenser till layout och id fanns sattes egna objekt 
+
+En konstruktor auto-genererades och ett antal metoder  Overridades/ärvdes. Där främmande objekt och referenser till layout och id fanns sattes egna objekt 
 och referenser in.
 I MainActivity Deklarerades och initierades en ArrayList<Mountain> och en RecyclerViewAdapter deklarerades.
-
 
 En Mountain Klass skapades och fick attributet namn (flera attribut skapades vid det här laget men enligt uppgiftsbeskrivningen
 krävdes bara namn och de andra attributen togs bort). En getter och setter Genererades samt en konstruktor.
@@ -67,14 +67,7 @@ adapter.notifyDataSetChanged();
 ```
 
 
+Screenshots från appen:
 
-Bilder läggs i samma mapp som markdown-filen.
+![](Networking_screenshot.png)
 
-![](android.png)
-
-Läs gärna:
-
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
